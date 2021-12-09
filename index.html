@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweater Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark" style="background-color: #87c1eb">
+      <a class="navbar-brand">Search for your city</a>
+      <form id= "city" class="form-inline">
+        <input
+          id="userInput"  
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          id="city-search"
+          class="btn btn-outline-success my-2 my-sm-0"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </nav>
+
+    <div class="container-fluid row">
+      <div id="saved-searches" class="col-3"></div>
+      <div class="col-9">
+        <div id= "current-weather" class="jumbotron">
+          <!-- <h1 class="display-4">Local Weather Application</h1>
+        <p class="lead" id="default-weather"></p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+        </div>
+        <div id="forecast" class="list-group">
+          <!-- <a href="#" class="list-group-item list-group-item-action active">
+          Cras justo odio
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+        <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a> -->
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+  </body>
+</html>
