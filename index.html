@@ -15,48 +15,49 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-dark" style="background-color: #87c1eb">
-      <a class="navbar-brand">Search for your city</a>
-      <form id= "city" class="form-inline">
-        <input
-          id="userInput"  
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button
-          id="city-search"
-          class="btn btn-outline-success my-2 my-sm-0"
-          type="submit"
-        >
-          Search
-        </button>
-      </form>
-    </nav>
+ <div class="container-fluid row">
+      <div id="saved-searches" class="col-3">
+        <nav class="navbar custom-background" style="background-color: #87c1eb">
+            <a class="navbar-brand"></a>
+            <form id= "city" class="form-inline">
+                <input
+                id="userInput"  
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                />
+                <button
+                id="city-search"
+                class="btn my-2 my-sm-0 button"
+                type="submit"
+                >
+                Search
+                </button>
+            </form>
+            </nav>
+            <div id="forecast" class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+              <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+              <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+              </div>
+      </div>
 
-    <div class="container-fluid row">
-      <div id="saved-searches" class="col-3"></div>
       <div class="col-9">
-        <div id= "current-weather" class="jumbotron">
-          <!-- <h1 class="display-4">Local Weather Application</h1>
-        <p class="lead" id="default-weather"></p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
-        </div>
-        <div id="forecast" class="list-group">
-          <!-- <a href="#" class="list-group-item list-group-item-action active">
-          Cras justo odio
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a> -->
+        <div id= "current-weather" class="jumbotron custom-background">
+            <h1 class="display-4">Local Weather Application</h1>
+            <h2 id="current-date"></h2>
+            <h2 id="current-city"></h2>
+            <div class="weather-icon" class="badge"></div>
+            <p id="weather-info" class="lead"></p>
+            <hr class="my-4">
+              <h3 id="forecast-title">Five-Day Weather Forecast</h3>
+              <div id="forecast-container" class="container">
+              </div>
+          </div>
         </div>
       </div>
     </div>
-
     <script src="assets/script.js"></script>
     <script src="https://momentjs.com/downloads/moment.js"></script>
   </body>

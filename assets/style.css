@@ -1,3 +1,46 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+.button {
+  background-color: seashell;
+  color: black;
+}
+
+.button:hover {
+  background-color: rgb(221, 215, 215);
+}
+
+.custom-background {
+  background-color: rgb(159, 209, 243);
+}
+
+.favorable {
+  background-color: rgb(41, 228, 41);
+  color: white;
+}
+
+.moderate {
+  background-color: orange;
+  color: white;
+}
+
+.severe {
+  background-color: rgb(212, 61, 61);
+  color: white;
+}
+
+#forecast-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h3 {
+  display: none;
+}
+
+.forecast {
+  background-color: rgb(149, 149, 201);
+  color: white;
 }
