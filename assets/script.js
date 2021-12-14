@@ -4,12 +4,54 @@ var tagline = document.createElement("p");
 tagline.innerHTML =
   "Search for any city's weather! </br> Simply type the name of the city and hit 'SEARCH'. The last five searches will be saved below for your convenience.";
 document.querySelector("#city").appendChild(tagline);
+var searchHistory = localStorage.getItem('searchHistory');
+var parsedSearchHistory;
+
+if (!searchHistory) {
+  parsedSearchHistory = [];
+} else {
+  parsedSearchHistory = JSON.parse(searchHistory);
+  displayPreviousCitySearch();
+}
+
+//TODO: Save last 5 searches on left side of screen, enabling user to re-select those cities
+
+function savePreviousCitySearch (userInput) {
+  userInput = userInput.toLowerCase().trim();
+  userInput = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+  parsedSearchHistory.forEach((city, index) => {
+    if (city === userInput) {
+      parsedSearchHistory.splice(index, 1);    
+    }
+  });
+
+  parsedSearchHistory.push(userInput);
+  localStorage.setItem('searchHistory', JSON.stringify(parsedSearchHistory));
+}
+
+function displayPreviousCitySearch() {
+  document.getElementById('search-history').innerHTML = "";
+  parsedSearchHistory.forEach((city) => {
+    var previousCityButton = document.createElement('button');
+    previousCityButton.classList.add('list-group-item');
+    previousCityButton.classList.add('list-group-item-action');
+    previousCityButton.innerHTML = city;
+    document.getElementById('search-history').appendChild(previousCityButton);
+    previousCityButton.addEventListener("click", handleHistoryClick);
+  });
+}
+
+function handleHistoryClick(event) {
+  locationSearch(event.target.innerHTML);
+}
+
+
 
 //Search button
-document.getElementById("city").addEventListener("submit", handleFormSubmit);
+document.getElementById("city").addEventListener("submit", citySearch);
 
 //Button grabs user input and fetches data from the API
-function handleFormSubmit(event) {
+function citySearch(event) {
   event.preventDefault();
   var userInput = document.getElementById("userInput").value;
   locationSearch(userInput);
@@ -21,13 +63,18 @@ function locationSearch(city) {
   fetch(queryURL)
     .then(function (response) {
       if (response.ok) {
+        savePreviousCitySearch(city);
+        displayPreviousCitySearch();
         return response.json();
       } else {
         return alert("Error. Please try again.");
       }
     })
     .then(function (data) {
-      findWeather(data);
+      if (data) {
+        findWeather(data);
+      }
+
     });
 }
 
@@ -56,7 +103,7 @@ function findWeather(locationData) {
 
 //Displays weather on button click
 function displayWeather(weatherData) {
-  var temperature = weatherData.current.temp;
+  var temperature = weatherData.current.temp.toFixed(0);
   var humidity = weatherData.current.humidity;
   var windSpeed = weatherData.current.wind_speed;
   var uvIndex = weatherData.current.uvi;
@@ -87,6 +134,7 @@ function displayWeather(weatherData) {
 
 //Finds and displays forecast for next week
 function displayForecast(locate) {
+  document.getElementById("forecast-container").innerHTML = "";
   document.getElementById("forecast-title").style.display = "block";
   var latitutde = locate.lat;
   var longitude = locate.lon;
@@ -133,8 +181,6 @@ function displayForecast(locate) {
       console.log("Fetch Error");
     });
 }
-
-//TODO: Save last 5 searches on left side of screen, enabling user to re-select those cities
 
 //Fetch the geo data (lat, lon)
 // q = Name of the city
