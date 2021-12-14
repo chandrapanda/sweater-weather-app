@@ -14,7 +14,7 @@ if (!searchHistory) {
   displayPreviousCitySearch();
 }
 
-//TODO: Save last 5 searches on left side of screen, enabling user to re-select those cities
+//Saves last 5 searches on left side of screen, enabling user to re-select those cities
 
 function savePreviousCitySearch (userInput) {
   userInput = userInput.toLowerCase().trim();
@@ -31,7 +31,8 @@ function savePreviousCitySearch (userInput) {
 
 function displayPreviousCitySearch() {
   document.getElementById('search-history').innerHTML = "";
-  parsedSearchHistory.forEach((city) => {
+  //Reversed search display so that most recent search appears on top 
+  parsedSearchHistory.slice().reverse().forEach((city) => {
     var previousCityButton = document.createElement('button');
     previousCityButton.classList.add('list-group-item');
     previousCityButton.classList.add('list-group-item-action');
@@ -44,8 +45,6 @@ function displayPreviousCitySearch() {
 function handleHistoryClick(event) {
   locationSearch(event.target.innerHTML);
 }
-
-
 
 //Search button
 document.getElementById("city").addEventListener("submit", citySearch);
@@ -181,8 +180,3 @@ function displayForecast(locate) {
       console.log("Fetch Error");
     });
 }
-
-//Fetch the geo data (lat, lon)
-// q = Name of the city
-
-// limit = 5 (optional)
