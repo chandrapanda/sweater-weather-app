@@ -1,9 +1,5 @@
 //Global variables and HTML Elements
 var APIKey = "a97dc7281c9ab7c0ece77353867d800a";
-var tagline = document.createElement("p");
-tagline.innerHTML =
-  "Search for any city's weather! </br> Simply type the name of the city and hit 'SEARCH'. The last five searches will be saved below for your convenience.";
-document.querySelector("#city").appendChild(tagline);
 var searchHistory = localStorage.getItem('searchHistory');
 var parsedSearchHistory;
 
