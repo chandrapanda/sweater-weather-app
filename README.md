@@ -1,4 +1,7 @@
 ## Sweater Weather App
+
+[Deployed Application](https://chandrapanda.github.io/sweater-weather-app/)
+
 Weather dashboard to retrieve weather data for cities around the world. User may type a city name in search bar and see the weather for the given city, as well as the date and a five-day forecast. The UV index is displayed with a color code regarding ideal, moderate, or severe conditions. After the user searches for a city, that city is added to a history bar on the left side of the screen for later use, if desired. When user clicks the previous city name, it appears on top of the list and displays the weather information for that city again. 
 
 ![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for selected city.](./assets/images/weather-app-1.png)
