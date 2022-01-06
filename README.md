@@ -7,6 +7,13 @@ Weather dashboard to retrieve weather data for cities around the world. User may
 ![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for selected city.](./assets/images/weather-app-1.png)
 ![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for selected city.](./assets/images/weather-app-2.png)
 
+## Technologies Used
+* JavaScript
+* HTML
+* CSS
+* Bootstrap API
+* OpenWeather API
+
 ## User Story
 
 ```
